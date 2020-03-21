@@ -47,7 +47,14 @@ After check for a class, create connection by obtain connection to your MySQL Da
 connect = DriverManager.getConnection("jdbc:mysql://yourMySQLpath/targetDatabase", "root", "");
 st = connect.createStatement(resultSetType, resultSetConcurrency);
 ```
+
 > Don't forget for `try-catch` clause for class checking and SQL Connection attempts
+
+**Notice:**
+- resultSetType: `TYPE_FORWARD_ONLY(1003), TYPE_SCROLL_INSENSITIVE(1004), TYPE_SCROLL_SENSITIVE(1005)`
+- resultSetConcurrency: `CONCUR_READ_ONLY(1007), CONCUR_UPDATABLE(1008)`
+
+> Java SQL (`java.sql.ResultSet`) documentation - [ResultSet JavaDocs](https://docs.oracle.com/javase/7/docs/api/java/sql/ResultSet.html)
 
 And finally, don't forget to close MySQL Database connection by `connection.close()` at a `closeDB()` method:
 ```java
