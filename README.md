@@ -43,11 +43,12 @@ Class.forName("com.mysql.cj.jdbc.Driver");
 
 After check for a class, create connection by obtain connection to your MySQL Database server by:
 ```java
+// Define connection url 'mysql://yourMySQLpath/targetDatabase' with user 'root' and no password
 String connection_url = "jdbc:mysql://yourMySQLpath/targetDatabase";
 String username = "root";
 String password = "";
 
-// Perform connection to a MySQL Database server for example 'mysql://yourMySQLpath/targetDatabase' with user 'root' and no password
+// Perform connection to a MySQL Database server using connection_url, username, password
 connect = DriverManager.getConnection(connection_url, username, password);
 st = connect.createStatement(resultSetType, resultSetConcurrency);
 ```
